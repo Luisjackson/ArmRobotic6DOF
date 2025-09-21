@@ -15,8 +15,7 @@ class PickAndPlaceNode(Node):
         
         # Inicialização do MoveIt Commander
         moveit_commander.roscpp_initialize(sys.argv)
-        
-        # Interfaces principais
+
         self.robot = moveit_commander.RobotCommander()
         self.scene = moveit_commander.PlanningSceneInterface()
         self.arm_group = moveit_commander.MoveGroupCommander("braco")
@@ -35,7 +34,7 @@ class PickAndPlaceNode(Node):
         # Adiciona a mesa na FRENTE do robô
         table_pose = PoseStamped()
         table_pose.header.frame_id = self.robot.get_planning_frame()
-        table_pose.pose.position.x = 0.4  # Posição X na frente
+        table_pose.pose.position.x = 0.4 
         table_pose.pose.position.z = 0.2
         self.scene.add_box("table", table_pose, size=(0.5, 1.0, 0.4))
 
@@ -100,7 +99,7 @@ class PickAndPlaceNode(Node):
         self.logger.info("Caixa anexada.")
         
         # Recuar
-        retreat_pose = pre_grasp_pose # Volta para a posição segura acima
+        retreat_pose = pre_grasp_pose
         if not self.go_to_pose(retreat_pose): return False
         
         return True
@@ -112,8 +111,8 @@ class PickAndPlaceNode(Node):
         place_pose = Pose()
         place_pose.orientation.w = 1.0
         place_pose.position.x = 0.4
-        place_pose.position.y = 0.2 # Local de largada
-        place_pose.position.z = 0.55 # Um pouco mais alto para evitar colisão
+        place_pose.position.y = 0.2
+        place_pose.position.z = 0.55 
         if not self.go_to_pose(place_pose): return False
              
         # Abrir a garra e desanexar o objeto

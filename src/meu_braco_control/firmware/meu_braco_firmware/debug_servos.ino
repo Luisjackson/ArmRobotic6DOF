@@ -1,7 +1,6 @@
-#include <DynamixelShield.h>
+//#include <DynamixelShield.h>
 
 /*
-// Mantenha as mesmas configurações de comunicação do seu código principal
 #if defined(ARDUINO_AVR_UNO) || defined(ARDUINO_AVR_MEGA2560)
   #include <SoftwareSerial.h>
   SoftwareSerial soft_serial(7, 8); // RX, TX
@@ -12,7 +11,6 @@
 
 DynamixelShield dxl(DXL_SERIAL, DXL_DIR_PIN);
 
-// IMPORTANTE: Use a mesma lista de IDs que você está tentando usar no seu código principal
 const int JOINT_COUNT = 6;
 const uint8_t dxl_ids[JOINT_COUNT] = {1, 2, 3, 4, 5, 6}; // <-- Use seus IDs reais aqui
 
