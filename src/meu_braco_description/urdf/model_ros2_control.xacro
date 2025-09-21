@@ -1,0 +1,77 @@
+<?xml version="1.0"?>
+<robot name="arm_6dof" xmlns:xacro="http://ros.org/wiki/xacro">
+
+    <xacro:property name="PI" value="3.14159265359"/>
+
+    <ros2_control name="RobotSystem" type="hardware_interface::SystemInterface">
+
+     <!-- <ros2_control type="system" name="RobotSystem"> -->
+        <xacro:if value="$(arg is_ignition)">
+            <hardware>
+                <plugin>ign_ros2_control/IgnitionSystem</plugin>
+            </hardware>
+        </xacro:if>
+        <xacro:unless value="$(arg is_ignition)">
+            <hardware>
+                <plugin>gz_ros2_control/GazeboSimSystem</plugin>
+            </hardware>
+        </xacro:unless>
+
+        <joint name="waist_joint">
+            <command_interface name="position">
+                <param name="min">-${PI/2}</param>
+                <param name="max">${PI/2}</param> 
+            </command_interface>
+            <state_interface name="position"/>
+            <state_interface name="velocity"/>
+        </joint>
+        
+        <joint name="shoulder_pitch_joint">
+            <command_interface name="position">
+                <param name="min">-${PI/2}</param>
+                <param name="max">${PI/2}</param> 
+            </command_interface>
+            <state_interface name="position"/>
+            <state_interface name="velocity"/>
+        </joint>
+
+        <joint name="elbow_pitch_joint">
+            <command_interface name="position">
+                <param name="min">-${PI/2}</param>
+                <param name="max">${PI/2}</param> 
+            </command_interface>
+            <state_interface name="position"/>
+            <state_interface name="velocity"/>
+        </joint>
+
+        <joint name="wrist_pitch_joint">
+            <command_interface name="position">
+                <param name="min">-${PI/2}</param>
+                <param name="max">${PI/2}</param> 
+            </command_interface>
+            <state_interface name="position"/>
+            <state_interface name="velocity"/>
+        </joint>
+
+        <joint name="gripper_base_joint">
+            <command_interface name="position">
+                <param name="min">-${PI/2}</param>
+                <param name="max">${PI/2}</param> 
+            </command_interface>
+            <state_interface name="position"/>
+            <state_interface name="velocity"/>
+        </joint>
+
+
+        <joint name="gripper_finger_joint">
+            <command_interface name="position">
+                <param name="min">-${PI/2}</param>
+                <param name="max">${PI/2}</param> 
+            </command_interface>
+            <state_interface name="position"/>
+            <state_interface name="velocity"/>
+        </joint>
+        
+    
+    </ros2_control>
+</robot>

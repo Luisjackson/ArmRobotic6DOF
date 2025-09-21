@@ -1,0 +1,39 @@
+# ~/ws_urdf/src/meu_braco_control/config/controllers.yaml
+
+controller_manager:
+  ros__parameters:
+    update_rate: 100  # Hz
+
+    # Nomes dos controladores que o controller_manager vai carregar
+    braco_controller:
+      type: joint_trajectory_controller/JointTrajectoryController
+
+    garra_controller:
+      type: joint_trajectory_controller/JointTrajectoryController
+
+    joint_state_broadcaster:
+      type: joint_state_broadcaster/JointStateBroadcaster
+
+# Configuração do Controlador do Braço 
+braco_controller:
+  ros__parameters:
+    joints:
+      - waist_joint
+      - shoulder_pitch_joint
+      - elbow_pitch_joint
+      - wrist_pitch_joint
+      - gripper_base_joint
+    command_interfaces:
+      - position
+    state_interfaces:
+      - position
+
+# Configuração do Controlador da Garra
+garra_controller:
+  ros__parameters:
+    joints:
+      - gripper_finger_joint
+    command_interfaces:
+      - position
+    state_interfaces:
+      - position

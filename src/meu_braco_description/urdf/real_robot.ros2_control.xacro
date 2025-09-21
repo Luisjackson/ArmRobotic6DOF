@@ -1,0 +1,57 @@
+<?xml version="1.0"?>
+<robot name="meu_braco" xmlns:xacro="http://www.ros.org/wiki/xacro">
+    <ros2_control name="MeuBracoHardware" type="system">
+        <hardware>
+            <plugin>meu_braco_hardware/MeuBracoSystemInterface</plugin>
+            <param name="serial_port">/dev/ttyACM0</param>
+        </hardware>
+
+        <joint name="waist_joint">
+            <command_interface name="position"/>
+            <state_interface name="position">
+                <param name="offset">0.003071</param>
+            </state_interface>
+            <state_interface name="velocity"/>
+        </joint>
+
+        <joint name="shoulder_pitch_joint">
+            <command_interface name="position"/>
+            <state_interface name="position">
+                <param name="offset">0.383870</param>
+            </state_interface>
+            <state_interface name="velocity"/>
+        </joint>
+
+        <joint name="elbow_pitch_joint">
+            <command_interface name="position"/>
+            <state_interface name="position">
+                <param name="offset">-0.070632</param>
+            </state_interface>
+            <state_interface name="velocity"/>
+        </joint>
+
+         <joint name="wrist_pitch_joint">
+            <command_interface name="position"/>
+            <state_interface name="position">
+                <param name="offset">0.015355</param>
+            </state_interface>
+            <state_interface name="velocity"/>
+        </joint>
+
+         <joint name="gripper_base_joint">
+            <command_interface name="position"/>
+            <state_interface name="position">
+                <param name="offset">-0.009213</param>
+            </state_interface>
+            <state_interface name="velocity"/>
+        </joint>
+
+        <joint name="gripper_finger_joint">
+            <command_interface name="position"/>
+            <state_interface name="position">
+                <param name="offset">0.537418</param>
+            </state_interface>
+            <state_interface name="velocity"/>
+        </joint>
+    </ros2_control>
+</robot>

@@ -1,0 +1,9 @@
+# Default initial positions for arm_6dof's ros2_control fake system
+
+initial_positions:
+  elbow_pitch_joint: 0
+  gripper_base_joint: 0
+  gripper_finger_joint: 0
+  shoulder_pitch_joint: 0
+  waist_joint: 0
+  wrist_pitch_joint: 0

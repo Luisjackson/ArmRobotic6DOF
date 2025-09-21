@@ -1,0 +1,9 @@
+<library path="meu_braco_hardware_system_interface">
+  <class name="meu_braco_hardware/MeuBracoSystemInterface"
+         type="meu_braco_hardware::MeuBracoSystemInterface"
+         base_class_type="hardware_interface::SystemInterface">
+    <description>
+      Hardware interface para o Meu Braço Robótico. Barril. 
+    </description>
+  </class>
+</library>

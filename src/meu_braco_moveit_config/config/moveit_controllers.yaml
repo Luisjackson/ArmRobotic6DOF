@@ -1,0 +1,30 @@
+# ~/ws_urdf/src/meu_braco_moveit_config/config/moveit_controllers.yaml
+moveit_controller_manager: moveit_ros_control_interface/MoveItControllerManager
+
+moveit_ros_control_interface:
+  ros__parameters:
+    # Parâmetros do ros2_control que o MoveIt usará
+    robot_description: "" 
+    
+    # Lista de controladores que o MoveIt pode usar
+    controller_names:
+      - braco_controller
+      - garra_controller
+    
+    braco_controller:
+      type: FollowJointTrajectory
+      default: true
+      action_ns: follow_joint_trajectory
+      joints:
+        - waist_joint
+        - shoulder_pitch_joint
+        - elbow_pitch_joint
+        - wrist_pitch_joint
+        - gripper_base_joint
+        
+    garra_controller:
+      type: FollowJointTrajectory
+      default: true
+      action_ns: follow_joint_trajectory
+      joints:
+        - gripper_finger_joint

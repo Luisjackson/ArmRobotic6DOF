@@ -1,0 +1,25 @@
+moveit_setup_assistant_config:
+  urdf:
+    package: meu_braco_description
+    relative_path: urdf/model.xacro
+  srdf:
+    relative_path: config/arm_6dof.srdf
+  package_settings:
+    author_name: luisjackson
+    author_email: junior-g-g@hotmail.com
+    generated_timestamp: 1754592772
+  control_xacro:
+    command:
+      - position
+    state:
+      - position
+      - velocity
+  modified_urdf:
+    xacros:
+      - control_xacro
+  control_xacro:
+    command:
+      - position
+    state:
+      - position
+      - velocity
